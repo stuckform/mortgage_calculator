@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Loan Calculator</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #2470a7;">
+    <a class="navbar-brand" href="#">Loan Calculator</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="solve.html">Solve</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="code.html">Code</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">GitHub</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">Portfolio</a>
+            </li>
+          </ul>   
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">The Calculator</h1>
+    <hr class="my-2">
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="solve.html" role="button">Check It Out</a>
+    </p>
+  </div>
+</div>
+
+<!-- need 3 inputs 
+  1. The amount of money loaned in dollars (balance)
+  2. The time over which the loan will be repaid, in months (term)
+  3. The percentage rate at which interest will accrue on the loan (rate) -->
+
+ <div class="container form">
+        <div class="row">
+            <div class="col mb-4 text-center h2">
+                Please fill out form below:
+            </div>            
+        </div>
+        <div class="row mb-4">
+            <div class="col-5 text-right">  
+                Amount Owed:             
+            </div>            
+            <div class="col-2 text-center">      
+                <input type="number" min="0" id="amount">         
+            </div>                            
+        </div> 
+        <div class="row mb-4">
+            <div class="col-5 text-right">    
+              Payment Term(months):
+            </div>            
+            <div class="col-4">    
+                <input type="number" min="0"  id="term">            
+            </div>                            
+        </div> 
+        <div class="row">
+            <div class="col-5 text-right">
+                Interest Rate:             
+            </div>            
+            <div class="col-4">  
+                <input type="number" min="0" id="rate">              
+            </div>                            
+        </div> 
+        <div class="row">
+            <div class="col mt-4 text-center">
+              <button class="btn btn-success btnWide">Calculate</button>
+            </div>  
+        </div>
+ </div>
+    
+    <hr>
+    <br>
+    <br>
+
+    <table class="table table-dark table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Payment</th>
+          <th>Principal</th>
+          <th>Interest</th>
+          <th>Total Interest</th>
+          <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+             <td></td>
+            <td></td>
+             <td></td>
+            <td></td>
+          </tr>
+           <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+           <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/site.js"></script>
+  </body>
+</html>
