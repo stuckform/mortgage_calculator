@@ -15,21 +15,22 @@
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #2470a7;">
     <a class="navbar-brand" href="#">Loan Calculator</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="solve.html">Solve</a>
             </li>
-             <li class="nav-item active">
+             <li class="nav-item">
                 <a class="nav-link" href="code.html">Code</a>
             </li>
              <li class="nav-item">
-                <a class="nav-link" href="#">GitHub</a>
+              <a class="nav-link" target="_blank" href="https://github.com/stuckform">GitHub</a>
             </li>
-             <li class="nav-item">
-                <a class="nav-link" href="#">Portfolio</a>
-            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://mattcoppinger.netlify.app/">Portfolio</a>
+             </li>
+            </ul>
           </ul>   
 </nav>
 
@@ -40,6 +41,54 @@
   </div>
 </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <pre class="line-numbers">
+            <code class="language-javascript">
+// button
+document.getElementById("calculate").addEventListener("click", calculate)
+
+// first hook the inputs values from html
+let amount = parseFloat(document.getElementById("amount").value);
+let term = parseFLoat(document.getElementById("term").value);
+let rate = parseFloat(document.getElementById("rate").value) / 100;
+// calculations
+
+function caculate() { 
+// Total Monthly Payment = (amount loaned) * (rate/1200) / (1 – (1 + rate/1200)  (-Number of Months) )
+let monthPay = (amount) * (rate / 1200) / (1 - Math.pow((1 + rate / 1200), - term))
+
+// Interest Payment = Previous Remaining Balance * rate / 1200Principal Payment = 
+// Remaining Balance = Previous Remaining Balance - principal payments
+
+// Remaining Balance before the very first month equals the amount of the loan.
+
+
+// Total Monthly Payment - Interest Payment At end each month, 
+
+
+
+// need a for loop to run through each month and add interest while lessoning the remaining balance. 
+
+for (month = 0; month <= term; month++){
+  
+  let principal = monthPay - interest;
+  
+  let interest = amount * rate / 1200;
+    
+  monthInterest += intrest
+
+
+
+  }
+};
+
+
+</code>
+</pre>
+</div>
+</div>
 
 
 
