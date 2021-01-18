@@ -14,21 +14,30 @@ let monthPay = (amount) * (rate / 1200) / (1 - Math.pow((1 + rate / 1200), - ter
 // Interest Payment = Previous Remaining Balance * rate / 1200Principal Payment = 
 // Remaining Balance = Previous Remaining Balance - principal payments
 
-// Remaining Balance before the very first month equals the amount of the loan. What is left.
-let balance = amount;
+// Remaining Balance before the very first month equals the amount of the loan.
 
 
-// Total Monthly Payment - Interest PaymentAt end each month, 
-let interest = balance * rate / 1200;
+// Total Monthly Payment - Interest Payment At end each month, 
 
 
-let principal = monthPay - interest;
 
 // need a for loop to run through each month and add interest while lessoning the remaining balance. 
 
-  for (month = 0; month <= term; month++){
+for (month = 0; month <= term; month++){
+  
+  let principal = monthPay - interest;
+  
+  let interest = amount * rate / 1200;
+    
+  monthInterest += intrest
 
-      
+  
+
+
+
+
+
+
   }
 
 
