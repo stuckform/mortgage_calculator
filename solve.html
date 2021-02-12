@@ -12,7 +12,7 @@
   </head>
   <body>
 
-<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #2470a7;">
+<nav class="navbar navbar-expand-xl navbar-dark" style="background-color: #2470a7;">
     <a class="navbar-brand" href="#">Loan Calculator</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
@@ -24,12 +24,13 @@
              <li class="nav-item">
                 <a class="nav-link" href="code.html">Code</a>
             </li>
-             <li class="nav-item">
-                <a class="nav-link" href="#">GitHub</a>
-            </li>
-             <li class="nav-item">
-                <a class="nav-link" href="#">Portfolio</a>
-            </li>
+                    <li class="nav-item">
+                   <a class="nav-link" target="_blank" href="https://github.com/stuckform">GitHub</a>
+                 </li>
+                <li class="nav-item">
+                   <a class="nav-link" target="_blank" href="https://mattcoppinger.netlify.app/">Portfolio</a>
+                </li>
+             </ul>
           </ul>   
 </nav>
 
@@ -48,7 +49,7 @@
   2. The time over which the loan will be repaid, in months (term)
   3. The percentage rate at which interest will accrue on the loan (rate) -->
 
- <div class="container form">
+ <!-- <div class="container form">
         <div class="row">
             <div class="col mb-4 text-center h2">
                 Please fill out form below:
@@ -59,7 +60,7 @@
                 Amount Owed:             
             </div>            
             <div class="col-2 text-center">      
-                <input type="number" min="0" id="amount">         
+                <input type="number" min="0" id="amount" value="25,000">         
             </div>                            
         </div> 
         <div class="row mb-4">
@@ -67,96 +68,100 @@
               Payment Term(months):
             </div>            
             <div class="col-4">    
-                <input type="number" min="0"  id="term">            
+                <input type="number" min="0"  id="term" value= "60">            
             </div>                            
         </div> 
         <div class="row">
             <div class="col-5 text-right">
-                Interest Rate:             
+                Interest Rate(%):             
             </div>            
             <div class="col-4">  
-                <input type="number" min="0" id="rate">              
+                <input type="number" min="0" id="rate" value="5">              
             </div>                            
         </div> 
         <div class="row">
             <div class="col mt-4 text-center">
-              <button class="btn btn-success btnWide">Calculate</button>
+              <button id="calculate" class="btn btn-success btnWide">Calculate</button>
             </div>  
         </div>
  </div>
-    
-    <hr>
-    <br>
-    <br>
+     -->
+ 
 
-    <table class="table table-dark table-hover table-bordered">
-      <thead>
-        <tr>
-          <th>Month</th>
-          <th>Payment</th>
-          <th>Principal</th>
-          <th>Interest</th>
-          <th>Total Interest</th>
-          <th>Balance</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
-             <td></td>
-            <td></td>
-             <td></td>
-            <td></td>
-          </tr>
-           <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-           <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-    </table>
+    <div class="container">
+    <h1 CLASS="MB-2">lOAN cALCULATOR</h1>
+    <div class="row">
+      <div class="col loanform">
+        <div class="row">
+          <div class="col">
+            <label for="lAmount">Loan Amount</label>
+          </div>
+          <div class="col">
+            <input type="number" value=15000 name="lAmount" id=amount>
+          </div>
+             <div class="col">
+            <label for="lPayments">Payments:</label>
+          </div>
+          <div class="col">
+            <input type="number" value=60 name="lTerm" id="term">
+          </div>
+             <div class="col">
+            <label for="1Rate">Rate:</label>
+          </div>
+          <div class="col">
+            <input type="number" value=3 name="lRate" id=rate>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <button class="btn btn-primary" id="btnCalc">Calculate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col loanInfo">
+    </div>
+    
+      <div class="col-2" id="paymentTitle">
+        <p>Your Monthly Payments:</p>
+      </div>
+      <p id="payment"></p>
+      <div class="row">
+        <div class="col-xl">
+          <label class="text-left">Total Principal:</label>
+        </div>
+        <div class="col-xl text-right" id=totalPrincipal></div>
+          <div class="col-xl">
+          <label class="text-left">Total Interest:</label>
+        </div>
+        <div class="col-xl text-right" id=totalInterest></div>
+          <div class="col-xl">
+          <label class="text-left">Total Cost:</label>
+        </div>
+        <div class="col-xl text-right" id=totalCost></div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped table-hover">
+          <thead id="tableheader" class="bg-dark text-white">
+            <tr>
+              <th>Month</th>
+              <th>Payment</th>
+              <th>Principal</th>
+              <th>Interest</th>
+              <th>Total Interest</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleBody">
+<!-- payments template data will go here -->
+<!-- <tr><td>... -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
 
 
 
@@ -166,9 +171,9 @@
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5xlXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjxlVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/site.js"></script>
   </body>
 </html>

@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="cs/style.css">
+    <link rel="stylesheet" href="">
   </head>
   <body>
 
@@ -46,48 +47,92 @@
         <div class="col">
           <pre class="line-numbers">
             <code class="language-javascript">
-// button
-document.getElementById("calculate").addEventListener("click", calculate)
+              // button
+document.getElementById("btnCalc").addEventListener("click", buildSchedule)
 
-// first hook the inputs values from html
-let amount = parseFloat(document.getElementById("amount").value);
-let term = parseFLoat(document.getElementById("term").value);
-let rate = parseFloat(document.getElementById("rate").value) / 100;
-// calculations
+function calcPayment(amount, rate, term) {
+  return (amount * rate) / (1 - Math.pow(1 + rate, -term));
+}
 
-function caculate() { 
-// Total Monthly Payment = (amount loaned) * (rate/1200) / (1 – (1 + rate/1200)  (-Number of Months) )
-let monthPay = (amount) * (rate / 1200) / (1 - Math.pow((1 + rate / 1200), - term))
+// calculate the interest for the current balance of the loan
+function calcInterest(balance, rate) {
+  return balance * rate;
+}
 
-// Interest Payment = Previous Remaining Balance * rate / 1200Principal Payment = 
-// Remaining Balance = Previous Remaining Balance - principal payments
+// this will build the loan schedule
+function buildSchedule() {
+  // get the values from inputs
+  let amount = parseFloat(document.getElementById("amount").value);
+  let rate = parseFloat(document.getElementById("rate").value);
+  let term = parseFloat(document.getElementById("term").value);
 
-// Remaining Balance before the very first month equals the amount of the loan.
+  // convert the input rate to a monthly rate
+  rate = rate / 1200;
+  // calculate the payments
+
+                                                  
+// step 1 setup varialbes that hold values in the schedule
+  let payment = calcPayment(amount, rate, term)
+  let balance = amount; 
+  let totalInterest = 0;
+  let monthlyPrincipal = 0;
+  let monthlyInterest = 0;
+  let monthlyTotalInterest = 0;
 
 
-// Total Monthly Payment - Interest Payment At end each month, 
+   // write the results to our table
+  let scheduleBody = document.getElementById("scheduleBody")
+  let scheduleRow = "";
+  // reset the table
+  scheduleBody.innerHtml = "";
 
+  for (month = 1; month <= term; month++){
+    monthlyInterest = calcInterest(balance, rate);
+    totalInterest += monthlyInterest;
+    monthlyPrincipal = payment - monthlyInterest;
+    balance = balance - monthlyPrincipal;
 
-
-// need a for loop to run through each month and add interest while lessoning the remaining balance. 
-
-for (month = 0; month <= term; month++){
-  
-  let principal = monthPay - interest;
-  
-  let interest = amount * rate / 1200;
+    // write these values to the table
+    scheduleRow = `<tr>
+    <td>${month}</td>
+    <td>${payment.toFixed(2)}</td>
+    <td>${monthlyPrincipal.toFixed(2)}</td>
+    <td>${monthlyInterest.toFixed(2)}</td>
+    <td>${totalInterest.toFixed(2)}</td>
+    <td>${balance.toFixed(2)}</td></tr>`;
     
-  monthInterest += intrest
-
-
-
+    scheduleBody.innerHTML += scheduleRow;
   }
+    document.getElementById("payment").innerHTML = Number(payment).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+
+    document.getElementById("totalPrincipal").innerHTML = Number(amount).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+
+    document.getElementById("totalInterest").innerHTML = Number(totalInterest).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+
+    let totalCost = Number(amount) + totalInterest;
+
+    document.getElementById("totalCost").innerHTML = Number(totalCost).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+  
 };
+    
+            </code>
+           
 
-
-</code>
-</pre>
-</div>
+      </pre>
+    </div>
+  </div>
 </div>
 
 
@@ -101,5 +146,6 @@ for (month = 0; month <= term; month++){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/site.js"></script>
+    <script src="js/prism.js"></script>
   </body>
 </html>
